@@ -17,7 +17,9 @@
         <li {{{ (Route::is('index') ? 'class=active' : '') }}}><a href="{{ URL::route('index') }}">Home<span class="sr-only">(current)</span></a></li>
         <li {{{ (Route::is('post-page') ? 'class=active' : '') }}}><a href="{{ URL::route('post-page') }}">Create Post</a></li>
         <li {{{ (Route::is('favorites-show') ? 'class=active' : '') }}}><a href="{{ URL::route('favorites-show') }}">Favorites</a></li>
-        <li><a href="#">Account</a></li>
+        @if(Auth::check())
+        <li {{{ (Route::is('account-page') ? 'class=active' : '') }}}><a href="{{ URL::route('account-page', ['username' => Auth::user()->name]) }}">Account</a></li>
+        @endif
       </ul>
       <ul class="nav navbar-nav navbar-right">
       @if(Auth::check())

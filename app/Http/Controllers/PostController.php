@@ -53,22 +53,27 @@ class PostController extends Controller {
     }
 
     public function addFavorite($postid) {
-        $favorite = new Favorite;
+        if(Auth::check()) {
+            $favorite = new Favorite;
 
-        $userid = Auth::user()->id;
+            $userid = Auth::user()->id;
 
-        $favorite->postid = $postid;
-        $favorite->userid = $userid;
+            $favorite->postid = $postid;
+            $favorite->userid = $userid;
 
-        $favorite->save();
+            $favorite->save();
+        }
 
         return back();
     }
 
     public function removeFavorite($postid) {
-        $userid = Auth::user()->id;
+        if(Auth::check()) {
 
-        Favorite::where(['userid' => $userid, 'postid' => $postid])->delete();
+            $userid = Auth::user()->id;
+
+            Favorite::where(['userid' => $userid, 'postid' => $postid])->delete();
+        }
 
         return back();
     }

@@ -34,6 +34,9 @@ Route::get('posts/favorites',					['as' => 'favorites-show',	'uses' => 'PostCont
 Route::get('posts/favorites/add/{postid}',		['as' => 'favorites-add',	'uses' => 'PostController@addFavorite']);
 Route::get('posts/favorites/remove/{postid}',	['as' => 'favorites-remove','uses' => 'PostController@removeFavorite']);
 
+// Account
+Route::get('account/{username}',				['as' => 'account-page',	'uses' => 'AccountController@getAccount']);
+
 });
 
 

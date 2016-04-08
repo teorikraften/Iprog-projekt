@@ -5,7 +5,8 @@ Favorites
 @endsection
 
 @section('content')
-@if(Auth::check() && !$favorites->isEmpty()))
+<h3>My Favorites</h3>
+@if(Auth::check() && !$favorites->isEmpty())
 @foreach($favorites as $favorite)
 <div class="content-item" id="post">
 	<div id="post_details">

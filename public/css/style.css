@@ -19,6 +19,10 @@ body {
 	
 }
 
+#account {
+	width: 50%;
+}
+
 .header {
 	height: 200px;
 	text-align: center;
